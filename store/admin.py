@@ -18,7 +18,6 @@ class InventoryFilter(admin.SimpleListFilter):
         # return super().queryset(request, queryset)
         return queryset
 
-
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
     autocomplete_fields = ['collection']
@@ -29,7 +28,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ['collection', 'last_update', InventoryFilter]
     list_per_page = 10
     list_select_related = ['collection']
-
     search_fields = ['title']
 
     def collection_title(self, product):
@@ -49,7 +47,6 @@ class ProductAdmin(admin.ModelAdmin):
             f'{updated_count} products were successfully updated.',
             messages.ERROR
         )
-    
 
 @admin.register(models.Collection)
 class CollectionAdmin(admin.ModelAdmin):
